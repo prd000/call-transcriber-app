@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: call-transcriber # You can change this name if you like
+    env: python
+    pythonVersion: "3.9" # Specify a Python version Render supports (e.g., 3.9, 3.10, 3.11)
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      # IMPORTANT: Create an Environment Group in Render named 'call-transcriber-secrets'
+      # Add ALL your secrets (RevAI key, Airtable keys/IDs, R2 keys/IDs/Domain/Bucket) there.
+      - group: call-transcriber-secrets 
+      # Alternatively, define individual keys and manage values in the dashboard
+      # - key: PYTHON_VERSION # Example if needed elsewhere
+      #   value: "3.9"
+      # - key: REV_AI_API_KEY
+      #   sync: false # Set sync to false to manage value only in Render dashboard
+      # ... add other keys similarly if not using a group ... 

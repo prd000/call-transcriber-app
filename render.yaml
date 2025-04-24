@@ -2,7 +2,7 @@ services:
   - type: web
     name: call-transcriber # You can change this name if you like
     runtime: python
-    pythonVersion: "3.9" # Specify a Python version Render supports (e.g., 3.9, 3.10, 3.11)
+    # Removed pythonVersion key - Render will use a default Python 3
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn app:app"
     envVars:

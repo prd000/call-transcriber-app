@@ -8,10 +8,9 @@ services:
     envVars:
       # IMPORTANT: Create an Environment Group in Render named 'call-transcriber-secrets'
       # Add ALL your secrets (RevAI key, Airtable keys/IDs, R2 keys/IDs/Domain/Bucket) there.
-      - group: call-transcriber-secrets 
+      - fromGroup: call-transcriber-secrets
       # Alternatively, define individual keys and manage values in the dashboard
       # - key: PYTHON_VERSION # Example if needed elsewhere
-      #   value: "3.9"
       # - key: REV_AI_API_KEY
       #   sync: false # Set sync to false to manage value only in Render dashboard
       # ... add other keys similarly if not using a group ... 
